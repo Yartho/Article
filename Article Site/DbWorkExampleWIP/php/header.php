@@ -12,5 +12,7 @@
 <body>
 	<div class="container">
 
-<?php if(!$_SESSION["loggedin"] == true) echo "<div class='row'><p><a href='login.php'> login.php  </a> </p></div>"; ?>
+<?php
+if (isset ($_SESSION["loggedin"]))
+if(!$_SESSION["loggedin"] == true) echo "<div class='row'><p><a href='login.php'> login.php  </a> </p></div>"; ?>
 

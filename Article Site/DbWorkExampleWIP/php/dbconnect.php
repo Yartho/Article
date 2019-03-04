@@ -1,9 +1,9 @@
 <?php 
 
-	$db = 'DbWorkExample';
-	$host = 'mysql';
-	$username = 'trainer';
-	$password = 'trainer';
+	$db = 'article';
+	$host = '127.0.0.1';
+	$username = 'root';
+	$password = '';
 
 
 
