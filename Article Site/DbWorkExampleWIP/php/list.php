@@ -12,7 +12,7 @@ print_r($SQL->rowCount());
 $result = $SQL->fetchAll();
 
 //var_dump($result);
-if($_SESSION["loggedin"] == true) echo "<div class='row'><p><a href='new.php'> new.php </a> </p></div>";
+if($_SESSION["loggedin"] ) echo "<div class='row'><p><a href='new.php'> new.php </a> </p></div>";
 
 for ($count = 0; $count < count($result); $count++) {
     echo "<div class='row'>";

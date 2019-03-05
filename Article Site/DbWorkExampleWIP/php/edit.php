@@ -9,7 +9,14 @@ if($_SESSION["loggedin"] == true) {
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 //AddToDB //////////////////////////////////////
-
+        $SQL = $connection->prepare('UPDATE article SET title = :NEWTITLE,description = :NEWDESCRIPTION,img  = :IMG WHERE id = :NUMBER');
+        $SQL->bindParam(':NUMBER', $_POST['id'], PDO::PARAM_INT);
+        $SQL->bindParam(':NEWTITLE',   htmlspecialchars($_POST['title']), PDO::PARAM_STR);
+        $SQL->bindParam(':NEWDESCRIPTION',  htmlspecialchars($_POST['description']), PDO::PARAM_STR);
+        if(!empty($_FILES['image'])) {
+            $FileNameToDB = ProcessUploadedFile($_FILES['image']);
+            $SQL->bindParam(':IMG', $FileNameToDB, PDO::PARAM_STR);
+        }
 //ProcessFile
 		
 		
@@ -20,7 +27,7 @@ else {
 echo "Error in Insert";
 print_r($SQL->errorInfo());
 $SQL->debugDumpParams();
-var_dump($_POST);
+//var_dump($_POST);
 }
 
 }
@@ -29,8 +36,8 @@ else {
 include 'header.php';
 
 
-$result = GetFromDBWithId($_GET[id],$connection);
-var_dump($result);
+$result = GetFromDBWithId($_GET['id'],$connection);
+//var_dump($result);
 ?>
 		<form method="POST" action="edit.php" enctype="multipart/form-data">
 		    <input type="hidden" name="id" value="<?php echo $result[0]['id'] ?? ''; ?>"
