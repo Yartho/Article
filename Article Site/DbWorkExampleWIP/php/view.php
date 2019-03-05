@@ -16,9 +16,11 @@ for ($count = 0; $count < count($result); $count++) {
 	//Loop And FillIn HTML//////////////////////////
 	}
 	if($_SESSION["loggedin"] == true) echo "<p><a href='edit.php?id=".$result[$count][id]."'</a> edit.php </p>";
-}
 
-echo "</div class='row'>";
+
+echo "<a href='view.php?id=' ><p>".$result[$count]['title']."</p></a>";
+}
+echo "</div>";
 
 include 'footer.php';
     
