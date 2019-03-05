@@ -19,9 +19,10 @@ for ($count = 0; $count < count($result); $count++) {
 
 
     if (is_array($result[$count]) == true) {
+
         //Loop and Create HTML
         // print_r($result[$count]);
-        echo "<p>" . $result[$count]['title'] . "</p>";
+        echo  "<a href='view.php?id=".$result[$count]['id']."'> <p>" . $result[$count]['title'] . "</p></a>";
         echo "<p>"."<img src ='".$result[$count]['img']."'></p>";
         echo "<p>" . $result[$count]['description'] . "</p>";
 
