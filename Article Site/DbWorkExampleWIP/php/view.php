@@ -5,7 +5,7 @@ include 'dbconnect.php';
 include 'functions.php';
 include 'header.php';
 
-//var_dump($_GET);
+var_dump($_GET);
 //var_dump($_SESSION);
 
 
